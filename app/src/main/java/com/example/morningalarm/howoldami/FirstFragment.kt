@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import com.example.morningalarm.howoldami.databinding.FragmentFirstBinding
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
@@ -34,16 +37,28 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.year.addTextChangedListener { setAge() }
-        binding.month.addTextChangedListener { setAge() }
-        binding.day.addTextChangedListener { setAge() }
+        binding.year.doAfterTextChanged {
+            setAge()
+
+            if (binding.year.text.length == 4) {
+                binding.month.requestFocus()
+            }
+        }
+        binding.month.doAfterTextChanged {
+            setAge()
+
+            if (binding.month.text.length == 2) {
+                binding.day.requestFocus()
+            }
+        }
+        binding.day.doAfterTextChanged { setAge() }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
+    
     private fun calculateAge(dateOfBirth: LocalDate): Long {
         return ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now())
     }
