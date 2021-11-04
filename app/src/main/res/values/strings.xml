@@ -9,4 +9,5 @@
     <string name="month">Month</string>
     <string name="day">Day</string>
     <string name="you_are_x_years_old">You are %d years old.</string>
+    <string name="slash" translatable="false">/</string>
 </resources>
