@@ -40,7 +40,9 @@
             android:maxLength="4"
             android:nextFocusForward="@id/month"
             android:textAlignment="textEnd"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/textView"
@@ -65,7 +67,9 @@
             android:maxLength="2"
             android:nextFocusForward="@id/day"
             android:textAlignment="textEnd"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="TextContrastCheck,TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/textView2"
@@ -88,7 +92,9 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAlignment="textEnd"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
     </LinearLayout>
 
     <TextView
