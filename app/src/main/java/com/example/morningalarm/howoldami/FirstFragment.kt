@@ -73,7 +73,6 @@ class FirstFragment : Fragment() {
             val day = day.toInt()
             if (month in 1..12 && day in 1..31) {
                 val dateOfBirth = LocalDate.of(year, month, day)
-//                binding.yourAgeIs.text = "You are ${calculateAge(dateOfBirth)} years old."
                 binding.yourAgeIs.text = getString(R.string.you_are_x_years_old, calculateAge(dateOfBirth))
             } else {
                 binding.yourAgeIs.text = ""
