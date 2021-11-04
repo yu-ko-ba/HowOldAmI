@@ -47,7 +47,8 @@ class FirstFragment : Fragment() {
         binding.month.doAfterTextChanged {
             setAge()
 
-            if (binding.month.text.length == 2) {
+            val text = binding.month.text
+            if (text.length == 2 && text.toString().toInt() in 1..12) {
                 binding.day.requestFocus()
             }
         }
